@@ -1,0 +1,266 @@
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── CSS Variables ── */
+body.dark {
+  --bg: #0f0f1a;
+  --card-bg: #1a1a2e;
+  --dial-bg: #e8e8f0;
+  --dial-border: #3a3a5c;
+  --hand-hour: #2d2d4a;
+  --hand-minute: #3a3a5c;
+  --hand-second: #e74c3c;
+  --text: #e0e0e0;
+  --text-muted: #9a9ab0;
+  --center-dot: #e74c3c;
+  --tick: #444466;
+  --header-bg: #12122080;
+  --toggle-bg: #3a3a5c;
+  --toggle-hover: #50507a;
+}
+
+body.light {
+  --bg: #e8ecf1;
+  --card-bg: #ffffff;
+  --dial-bg: #ffffff;
+  --dial-border: #c0c0d0;
+  --hand-hour: #2c3e50;
+  --hand-minute: #34495e;
+  --hand-second: #e74c3c;
+  --text: #1a1a2e;
+  --text-muted: #5a5a7a;
+  --center-dot: #e74c3c;
+  --tick: #bbbbd0;
+  --header-bg: #ffffff90;
+  --toggle-bg: #c0c0d0;
+  --toggle-hover: #a0a0b8;
+}
+
+/* ── Body ── */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ── Header ── */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 24px 16px;
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+#theme-toggle {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--toggle-bg);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#theme-toggle:hover {
+  background: var(--toggle-hover);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* ── Clock Grid ── */
+#clocks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  padding: 32px 48px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ── Clock Card ── */
+.clock-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 24px 16px 20px;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.clock-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Analog Clock ── */
+.clock-face {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: var(--dial-bg);
+  border: 3px solid var(--dial-border);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* Tick marks */
+.tick {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: var(--tick);
+  transform-origin: 0 77px;
+  border-radius: 1px;
+}
+
+.tick.major {
+  width: 3px;
+  height: 16px;
+  background: var(--hand-hour);
+  transform-origin: 0 77px;
+}
+
+/* Hour numbers */
+.hour-number {
+  position: absolute;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--hand-hour);
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Clock Hands */
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 4px;
+}
+
+.hand-hour {
+  width: 4px;
+  height: 40px;
+  background: var(--hand-hour);
+  margin-left: -2px;
+  z-index: 3;
+}
+
+.hand-minute {
+  width: 3px;
+  height: 55px;
+  background: var(--hand-minute);
+  margin-left: -1.5px;
+  z-index: 4;
+}
+
+.hand-second {
+  width: 1.5px;
+  height: 62px;
+  background: var(--hand-second);
+  margin-left: -0.75px;
+  z-index: 5;
+}
+
+.center-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--center-dot);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+/* ── Digital Display ── */
+.digital-time {
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  color: var(--text);
+}
+
+.zone-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+}
+
+.zone-city {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  #clocks-container {
+    padding: 20px 16px 32px;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .clock-face {
+    width: 140px;
+    height: 140px;
+  }
+
+  .tick {
+    transform-origin: 0 62px;
+  }
+
+  .tick.major {
+    transform-origin: 0 62px;
+  }
+
+  .hand-hour {
+    height: 32px;
+  }
+
+  .hand-minute {
+    height: 44px;
+  }
+
+  .hand-second {
+    height: 50px;
+  }
+}
