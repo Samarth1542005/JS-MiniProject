@@ -1,1 +1,90 @@
-<h1> Samarth Raut </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1 - Color Changer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s ease;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .heading {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .subtext {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .subtext span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .color-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .color-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 16px;
+            cursor: pointer;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .color-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-text {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">Project 1</h1>
+    <p class="subtext">🎨 Pick any color below and watch the entire page come alive! <span>Click a color block</span> to change the background.</p>
+    <div class="color-container">
+        <div class="color-box" style="background-color: #e74c3c;" data-color="#e74c3c"></div>
+        <div class="color-box" style="background-color: #2ecc71;" data-color="#2ecc71"></div>
+        <div class="color-box" style="background-color: #3498db;" data-color="#3498db"></div>
+        <div class="color-box" style="background-color: #f1c40f;" data-color="#f1c40f"></div>
+    </div>
+    <p class="footer-text">Built with HTML, CSS & JavaScript</p>
+    <script src="script.js"></script>
+</body>
+</html>
