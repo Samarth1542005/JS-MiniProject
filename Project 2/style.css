@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    width: 460px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* ─── Gender Selection ─── */
+.gender-section {
+    margin-bottom: 24px;
+}
+
+.gender-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.gender-options {
+    display: flex;
+    gap: 12px;
+}
+
+.gender-card {
+    flex: 1;
+    padding: 16px 10px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.gender-card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.gender-card.active-male {
+    border-color: #60a5fa;
+    background: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.gender-card.active-female {
+    border-color: #f472b6;
+    background: rgba(244, 114, 182, 0.15);
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
+}
+
+.gender-card .gender-icon {
+    font-size: 36px;
+    margin-bottom: 6px;
+}
+
+.gender-card .gender-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.gender-card input[type="radio"] {
+    display: none;
+}
+
+/* ─── Input Fields ─── */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.input-group input:focus {
+    border-color: #7c5cfc;
+}
+
+/* ─── Button ─── */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c5cfc, #a855f7);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 92, 252, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ─── Result Section ─── */
+.result-section {
+    margin-top: 30px;
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bmi-value {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.bmi-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}
+
+.bmi-category {
+    font-size: 22px;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.bmi-category.underweight {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.bmi-category.normal {
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.bmi-category.overweight {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.bmi-category.obese {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.feedback {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}
+
+.feedback .emoji {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* ─── BMI Scale Bar ─── */
+.bmi-scale {
+    margin: 20px 0 10px 0;
+    position: relative;
+    height: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.bmi-scale .seg {
+    height: 100%;
+}
+
+.bmi-scale .seg.seg-under { flex: 18.5; background: #60a5fa; }
+.bmi-scale .seg.seg-normal { flex: 6.5; background: #4ade80; }
+.bmi-scale .seg.seg-over { flex: 5; background: #fbbf24; }
+.bmi-scale .seg.seg-obese { flex: 10; background: #f87171; }
+
+.bmi-pointer {
+    position: absolute;
+    top: -8px;
+    transform: translateX(-50%);
+    font-size: 18px;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+    transition: left 0.5s ease;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 16px;
+    padding: 0 2px;
+}
