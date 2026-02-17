@@ -21,9 +21,14 @@ JS-MiniProject/
 │   ├── index.html
 │   ├── script.js
 │   └── style.css
-└── Project 3/          # World Time
+├── Project 3/          # World Time
+│   ├── index.html
+│   ├── index.js
+│   └── style.css
+└── Project 4/          # GitHub Profile Viewer
     ├── index.html
-    ├── index.js
+    ├── script.js
+    ├── silk.js
     └── style.css
 ```
 
@@ -93,12 +98,39 @@ A beautiful real-time world clock app displaying **analog + digital clocks** for
 
 ---
 
+## 🔍 Project 4 — GitHub Profile Viewer
+
+A sleek GitHub profile lookup app that fetches user data from the GitHub API and displays it in a beautifully designed card with a mesmerizing silk-like animated WebGL background.
+
+### Features
+- **Search by username** with a clean input field and search button
+- Fetches real-time data from the **GitHub REST API** (`api.github.com`)
+- Displays **avatar**, **name**, **username**, **bio**, **public repos**, **followers**, and **following**
+- Direct **"View on GitHub"** link to the user's profile
+- **Animated silk background** using a custom WebGL shader with layered simplex noise
+- Keyboard support (Enter key to search)
+- Graceful **error handling** for invalid or non-existent usernames
+- Glassmorphism UI with backdrop blur, gradient text, and smooth `fadeIn` animations
+- Fully responsive design with mobile-friendly layout
+
+### Technologies
+| Tech | Usage |
+|------|-------|
+| **HTML** | Semantic structure, search input, profile card layout with stats |
+| **CSS** | Glassmorphism (`backdrop-filter: blur`), gradient text with `background-clip`, CSS animations (`fadeIn`, `containerIn`, `gradientShift`), Flexbox, responsive media queries |
+| **JavaScript** | `fetch` API for GitHub REST API calls, `async/await`, DOM manipulation, error handling, event listeners |
+| **WebGL (silk.js)** | Custom vertex & fragment shaders, simplex noise algorithm, layered noise for silk-like flowing animation, `requestAnimationFrame` rendering loop |
+| **Google Fonts** | Inter font family |
+
+---
+
 ## 🛠️ Technologies Overview
 
 - **HTML5** — Semantic markup and structure
 - **CSS3** — Flexbox, Grid, Transitions, Animations, Glassmorphism, CSS Variables
-- **Vanilla JavaScript (ES6+)** — DOM manipulation, Event handling, Intl API, localStorage, requestAnimationFrame
-- **Google Fonts** — Inter (landing page), Poppins (Project 1)
+- **Vanilla JavaScript (ES6+)** — DOM manipulation, Event handling, Intl API, localStorage, requestAnimationFrame, Fetch API, async/await
+- **WebGL** — Custom shaders, simplex noise, animated backgrounds
+- **Google Fonts** — Inter (landing page & Project 4), Poppins (Project 1)
 
 ---
 
@@ -117,9 +149,9 @@ A beautiful real-time world clock app displaying **analog + digital clocks** for
 
 ## 📸 Screenshots
 
-| Landing Page | Color Changer | BMI Calculator | World Time |
-|:---:|:---:|:---:|:---:|
-| 🏠 | 🎨 | ⚖️ | 🌍 |
+| Landing Page | Color Changer | BMI Calculator | World Time | GitHub Profile Viewer |
+|:---:|:---:|:---:|:---:|:---:|
+| 🏠 | 🎨 | ⚖️ | 🌍 | 🔍 |
 
 ---
 
