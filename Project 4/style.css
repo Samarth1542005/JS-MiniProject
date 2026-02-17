@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Silk WebGL Canvas Background */
+#silk-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 480px;
+    background: rgba(13, 17, 23, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    animation: containerIn 0.6s ease-out;
+}
+
+@keyframes containerIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+    background: linear-gradient(135deg, #a78bfa, #58a6ff, #7c3aed);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
+    letter-spacing: -0.02em;
+}
+
+h1 .icon {
+    font-size: 1.4rem;
+    margin-right: 0.25rem;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.search-box {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+}
+
+#username-input {
+    flex: 1;
+    padding: 0.8rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#username-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+#username-input:focus {
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+#search-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.8rem 1.3rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#search-btn:hover {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+}
+
+#search-btn:active {
+    transform: translateY(0);
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid rgba(167, 139, 250, 0.5);
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+.profile-card h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.01em;
+}
+
+.profile-card #username {
+    color: rgba(167, 139, 250, 0.8);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.profile-card #bio {
+    color: rgba(226, 232, 240, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 0.75rem 1.25rem;
+    min-width: 85px;
+    transition: background 0.3s ease;
+}
+
+.stat:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #a78bfa;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: rgba(226, 232, 240, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.15rem;
+    font-weight: 500;
+}
+
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.65rem 1.6rem;
+    background: rgba(255, 255, 255, 0.06);
+    color: #a78bfa;
+    text-decoration: none;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.profile-link:hover {
+    background: rgba(167, 139, 250, 0.12);
+    border-color: rgba(167, 139, 250, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+}
+
+.error {
+    color: #f87171;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.15);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+    body {
+        padding: 1rem;
+        align-items: flex-start;
+        padding-top: 3rem;
+        overflow-y: auto;
+    }
+
+    .container {
+        padding: 1.75rem 1.25rem;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 1.35rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #search-btn {
+        justify-content: center;
+    }
+
+    .stats {
+        gap: 0.6rem;
+    }
+
+    .stat {
+        min-width: 70px;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .stat-value {
+        font-size: 1.1rem;
+    }
+}

@@ -180,6 +180,9 @@ header h1 {
 .card-3::before {
   background: linear-gradient(160deg, rgba(52, 211, 153, 0.08), transparent 60%);
 }
+.card-4::before {
+  background: linear-gradient(160deg, rgba(251, 146, 60, 0.08), transparent 60%);
+}
 
 .card:hover::before {
   opacity: 1;
@@ -229,6 +232,7 @@ header h1 {
 .card-1 h2 { color: var(--accent-1); }
 .card-2 h2 { color: var(--accent-2); }
 .card-3 h2 { color: var(--accent-3); }
+.card-4 h2 { color: #fb923c; }
 
 /* Description */
 .card p {
@@ -279,6 +283,7 @@ header h1 {
 .card-1:hover .card-arrow { color: var(--accent-1); }
 .card-2:hover .card-arrow { color: var(--accent-2); }
 .card-3:hover .card-arrow { color: var(--accent-3); }
+.card-4:hover .card-arrow { color: #fb923c; }
 
 /* ── Footer ────────────────────────────────── */
 footer {
